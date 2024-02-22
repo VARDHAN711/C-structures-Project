@@ -1,6 +1,6 @@
 #include<stdio.h>
 #include<string.h>
-
+//this is a change
 typedef struct Itemmm
 {
     char name[10];

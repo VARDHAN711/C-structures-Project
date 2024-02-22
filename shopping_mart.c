@@ -169,9 +169,15 @@ void view_cart(Item* cart, int cart_count)
             printf("Price:%d\n",cart[i].price);
         }
     }
+    int total_amount=0;
+    for (int i = 0; i < cart_count; i++)
+    {
+        total_amount+= (cart[i].qty) * (cart[i].price);
+    }
+    printf("\nTotal amount= %d\n",total_amount);
 }
 
-void update_cart(Item* cart, int cart_count)
+void update_cart(Item* cart, int cart_count, Item* lis, int items_count)
 {
     printf("\n\nWelcome to update_cart\n");
     char target2[10];
@@ -187,6 +193,19 @@ void update_cart(Item* cart, int cart_count)
             int quantity;
             printf("Enter new quantity:");
             scanf("%d",&quantity);
+            for (int i = 0; i < items_count; i++)
+            {
+                int result= strcmp(lis[i].name,target2);
+
+                if (result==0)
+                {
+                    if (quantity>lis[i].qty)
+                    {
+                        printf("That much qty is not available in the mart\n");
+                        break;
+                    }
+                }
+            }
             cart[i].qty=quantity;
             printf("After update:\n");
             printf("Updated quantity of %s is %d",target2,cart[i].qty);
@@ -262,7 +281,7 @@ int checkout_bill(Item* cart, int cart_count, Item* lis, int list_count)
                     strcpy(lis[i].name,lis[i+1].name);
                     lis[i].qty=lis[i+1].qty;
                     lis[i].price=lis[i+1].price;
-                    cart_count--;
+                    list_count--;
                 }   
             }
         }
@@ -275,7 +294,7 @@ int checkout_bill(Item* cart, int cart_count, Item* lis, int list_count)
         cart[i].qty=0;
         cart[i].price=0; 
     }
-    return cart_count;
+    return list_count;
 }
 
 
@@ -357,7 +376,7 @@ int user(Item* lis, Item* cart, int items_count)
             break;
 
         case 4:
-            update_cart(cart,cart_count);
+            update_cart(cart,cart_count,lis,items_count);
             break;
 
         case 5:

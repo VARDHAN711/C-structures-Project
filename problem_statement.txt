@@ -1,0 +1,76 @@
+Simple shopping mart
+
+---
+Press 2 for user or press 1 for admin: 1
+
+Welcome admin!
+printf: how many items you want? 5
+
+Press 1 for add_item
+Press 2 for del_item //set qty to zero
+Press 3 for update_item_price //set tomato to 10 per kg
+Press 4 for display_all_items
+Press 5 to exit
+---
+
+Admin presses 1:
+Enter name:
+Enter qty:
+Enter price:
+
+Admin presses 2:
+Enter name: lemon
+//print statement: lemon is set to zero
+
+Admin presses 3:
+Enter name: tomato
+//print statement: tomato current price is:5
+Enter new price: 30
+//print statment: tomato price updated to 30
+---
+
+item structure
+---
+name - char array of 10 letters  (tomato)
+qty - integer (5 kg)
+price - integer (300 per kg)
+---
+
+Welcome to the Shopping Mart!
+
+Press 1 for view_all_items 
+Press 2 for add_to_Cart
+Press 3 for view_cart
+Press 4 for del_from_cart
+Press 5 for checkout and view bill
+Press 6 for Exit
+--------
+
+User presses 2
+
+enter name of item to add: lemon
+enter quantity: 4
+
+//if qty entered by user is more than one in mart: then printf: that much qty is not available in the mart
+//do linear search using name to find price and then add all 3 to cart
+
+---------
+Usr presses 4:
+Enter item to delete from cart: lemon
+printf: item "name" deleted from cart
+
+
+
+-----------
+Usr presses 5
+printf: checking out.....
+printf: generating bill.....
+
+bill:
+list all items with rspective prices and qty
+total items bought
+total price to pay
+
+//cart will be empty after checkout
+//update the List array correctly
+//delete everything from the cart array
